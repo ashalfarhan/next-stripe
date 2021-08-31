@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Product } from "../../@types";
 import { memo, useMemo } from "react";
 import { useCartState, useCurrency, useCartAction } from "../../helpers";
@@ -18,11 +17,11 @@ const CardProductDetail = ({ product }: CardProductDetailProps) => {
   );
   return (
     <div className="flex pt-24 space-y-4 md:space-x-8 md:flex-row flex-col justify-center md:items-center">
-      <Image
+      <img
         src={product.image}
         width={380}
         height={380}
-        objectFit="cover"
+        className="object-cover w-96 h-96"
         alt={product.label}
       />
       <div className="md:w-2/5 w-full flex flex-col space-y-2 items-stretch">

@@ -1,5 +1,4 @@
 import { useRouter } from "next/dist/client/router";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Layout, Seo } from "../../components";
@@ -38,14 +37,12 @@ export default function PaymentSuccessPage() {
             </Link>
           </div>
         </div>
-        <Image
-          className="z-0 opacity-90"
+        <img
+          className="z-0 opacity-90 absolute inset-0 object-cover w-full"
           src={
             "https://images.unsplash.com/photo-1530554764233-e79e16c91d08?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
           }
-          layout="fill"
-          objectFit="cover"
-          quality={100}
+          loading="lazy"
           alt="CHams Successful Payment"
         />
       </div>

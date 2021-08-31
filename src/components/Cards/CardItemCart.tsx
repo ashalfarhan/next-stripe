@@ -1,5 +1,4 @@
 import { CartItem } from "../../@types";
-import Image from "next/image";
 import { useCartAction, useCurrency } from "../../helpers";
 import { memo, useMemo } from "react";
 import Link from "next/link";
@@ -20,11 +19,12 @@ const CardItemCart = ({ product }: CardItemCartProps) => {
     <div className="border flex space-x-4 p-4">
       <Link href={`/products/${product.id}`} passHref>
         <a className="flex space-x-4">
-          <Image
+          <img
             src={product.image}
             width={120}
             height={120}
-            objectFit="cover"
+            className="object-cover w-32 h-32"
+            // objectFit="cover"
             alt={product.label}
           />
           <div className="flex flex-col">

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { memo, useMemo } from "react";
 import { Product } from "../../@types";
@@ -19,10 +18,11 @@ const CardFeaturedProduct = ({ product }: CardFeaturedProductProps) => {
   );
   return (
     <div className="p-4 flex flex-col hover:shadow-2xl transition-shadow ease-in-out duration-300 rounded-xl">
-      <Image
+      <img
         src={product.image}
         width={380}
-        objectFit="cover"
+        className="object-cover w-96 h-80"
+        loading="lazy"
         height={320}
         alt={product.label}
       />
