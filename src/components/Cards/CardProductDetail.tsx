@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Product } from "../../@types";
 import { memo, useMemo } from "react";
 import { useCartState, useCurrency, useCartAction } from "../../helpers";
+import NoSSR from "../Shared/NoSsr";
 
 interface CardProductDetailProps {
   product: Product;
@@ -27,12 +28,14 @@ const CardProductDetail = ({ product }: CardProductDetailProps) => {
       <div className="md:w-2/5 w-full flex flex-col space-y-2 items-stretch">
         <h1 className="text-xl">{product.label}</h1>
         <p>{format(product.price)} USD</p>
-        <button
-          className={`py-2 border-2 border-black`}
-          onClick={() => addItemToCart(product.id)}
-        >
-          {isAlreadyInCart ? "Add more to cart" : "Add to cart"}
-        </button>
+        <NoSSR>
+          <button
+            className={`py-2 border-2 border-black`}
+            onClick={() => addItemToCart(product.id)}
+          >
+            {isAlreadyInCart ? "Add more to cart" : "Add to cart"}
+          </button>
+        </NoSSR>
         <button className="py-3 bg-black text-white">
           Proceed To checkout
         </button>

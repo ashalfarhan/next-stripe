@@ -1,7 +1,5 @@
-import dynamic from "next/dynamic";
 import { ReactNode } from "react";
-
-const Header = dynamic(() => import("./Header"), { ssr: false });
+import Header from "./Header";
 
 interface LayoutProps {
   children: ReactNode;

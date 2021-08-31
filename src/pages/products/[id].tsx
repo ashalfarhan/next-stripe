@@ -1,13 +1,7 @@
 import { GetServerSideProps } from "next";
-import dynamic from "next/dynamic";
 import { Product } from "../../@types";
-import { Seo, Layout, ComponentLoading } from "../../components";
+import { Seo, Layout, CardProductDetail } from "../../components";
 import { dummyProducts } from "../../mocks";
-
-const CardProductDetail = dynamic(
-  () => import("../../components/Cards/CardProductDetail"),
-  { ssr: false, loading: ComponentLoading },
-);
 
 interface ProductPageProps {
   product: Product;

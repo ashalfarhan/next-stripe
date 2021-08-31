@@ -12,7 +12,6 @@ const handler: NextApiHandler = async (req, res) => {
     if (line_items && customer_email) {
       try {
         await withCors(req, res);
-        console.log(withCors);
         const session = await $stripe.checkout.sessions.create({
           line_items,
           customer_email,

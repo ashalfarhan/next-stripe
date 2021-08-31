@@ -1,10 +1,4 @@
-import dynamic from "next/dynamic";
-import { ComponentLoading, Layout, Seo } from "../components";
-
-const CheckoutForm = dynamic(() => import("../components/Forms/CheckoutForm"), {
-  loading: ComponentLoading,
-  ssr: false,
-});
+import { CheckoutForm, Layout, Seo } from "../components";
 
 export default function Checkout() {
   return (

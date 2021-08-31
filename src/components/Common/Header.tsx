@@ -2,6 +2,7 @@ import Link from "next/link";
 import { memo, useMemo } from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import { useCartState } from "../../helpers";
+import NoSSR from "../Shared/NoSsr";
 
 const navs = [
   {
@@ -37,11 +38,13 @@ const Header = () => {
         <Link href="/cart" passHref>
           <a className="relative">
             <TiShoppingCart title="My Cart" size="2rem" />
-            {isNotif && (
-              <span className="absolute text-xs -top-1 -right-2 rounded-full bg-black w-4 h-4 text-white flex justify-center items-center">
-                {totalCartQty}
-              </span>
-            )}
+            <NoSSR>
+              {isNotif && (
+                <span className="absolute text-xs -top-1 -right-2 rounded-full bg-black w-4 h-4 text-white flex justify-center items-center">
+                  {totalCartQty}
+                </span>
+              )}
+            </NoSSR>
           </a>
         </Link>
       </div>

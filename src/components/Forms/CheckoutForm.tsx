@@ -2,6 +2,7 @@ import { useStripe } from "@stripe/react-stripe-js";
 import { FormEvent, useState } from "react";
 import { useCartState, useCurrency } from "../../helpers";
 import { $axios } from "../../libs";
+import NoSSR from "../Shared/NoSsr";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -54,7 +55,9 @@ const CheckoutForm = () => {
     >
       <div className="flex items-center flex-col">
         <p>Total amount to pay</p>
-        <p>{format(totalAmount)} USD</p>
+        <NoSSR>
+          <p>{format(totalAmount)} USD</p>
+        </NoSSR>
       </div>
       <input
         type="text"
