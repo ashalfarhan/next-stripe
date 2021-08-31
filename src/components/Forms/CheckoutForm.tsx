@@ -40,11 +40,13 @@ const CheckoutForm = () => {
           sessionId: data.sessionId,
         });
         if (error) {
-          console.log("Something went wrong while redirecting you to checkout");
+          console.error(
+            "Something went wrong while redirecting you to checkout",
+          );
           return;
         }
       } catch (error) {
-        console.log("Failed to charge: ", error.message);
+        console.error("Failed to charge: ", error);
       }
     }
   };

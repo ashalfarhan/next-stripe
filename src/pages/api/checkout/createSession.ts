@@ -31,7 +31,6 @@ const handler: NextApiHandler = async (req, res) => {
       } catch (error) {
         return res.status(400).send({
           message: "Failed to create checkout session",
-          reason: error.message,
         });
       }
     }

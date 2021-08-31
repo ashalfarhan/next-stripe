@@ -19,9 +19,7 @@ const handler: NextApiHandler = async (req, res) => {
         });
         res.status(200).send({ message: "success", payment });
       } catch (error) {
-        res
-          .status(400)
-          .send({ message: "Payment creating failed", reason: error.message });
+        res.status(400).send({ message: "Payment creating failed" });
       }
     }
   }
