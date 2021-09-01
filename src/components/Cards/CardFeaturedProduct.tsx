@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { memo, useMemo } from "react";
+import { useMemo } from "react";
 import { Product } from "../../@types";
 import { useCartAction, useCartState, useCurrency } from "../../helpers";
 import NoSSR from "../Shared/NoSsr";
@@ -51,4 +51,4 @@ const CardFeaturedProduct = ({ product }: CardFeaturedProductProps) => {
   );
 };
 
-export default memo(CardFeaturedProduct);
+export default CardFeaturedProduct;

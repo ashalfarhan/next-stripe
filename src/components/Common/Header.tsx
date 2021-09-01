@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { memo, useMemo } from "react";
+import { useMemo } from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import { useCartState } from "../../helpers";
 import NoSSR from "../Shared/NoSsr";
@@ -52,4 +52,4 @@ const Header = () => {
   );
 };
 
-export default memo(Header);
+export default Header;

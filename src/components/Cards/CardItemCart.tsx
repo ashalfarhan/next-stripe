@@ -1,6 +1,6 @@
 import { CartItem } from "../../@types";
 import { useCartAction, useCurrency } from "../../helpers";
-import { memo, useMemo } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 
 interface CardItemCartProps {
@@ -65,4 +65,4 @@ const CardItemCart = ({ product }: CardItemCartProps) => {
   );
 };
 
-export default memo(CardItemCart);
+export default CardItemCart;

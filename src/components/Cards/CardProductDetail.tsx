@@ -1,5 +1,5 @@
 import { Product } from "../../@types";
-import { memo, useMemo } from "react";
+import { useMemo } from "react";
 import { useCartState, useCurrency, useCartAction } from "../../helpers";
 import NoSSR from "../Shared/NoSsr";
 
@@ -44,4 +44,4 @@ const CardProductDetail = ({ product }: CardProductDetailProps) => {
   );
 };
 
-export default memo(CardProductDetail);
+export default CardProductDetail;
