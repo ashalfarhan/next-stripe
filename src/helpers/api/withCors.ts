@@ -1,8 +1,8 @@
-import Cors from "cors";
-import withMiddleware from "./middleware";
+import Cors from 'cors'
+import withMiddleware from './middleware'
 
-const cors = Cors({ methods: ["GET", "POST"] });
+const cors = Cors({ methods: ['GET', 'POST'] })
 
-const withCors = withMiddleware(cors);
+const withCors = withMiddleware(cors)
 
-export default withCors;
+export default withCors

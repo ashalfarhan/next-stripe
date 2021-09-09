@@ -1,38 +1,38 @@
-import { parseIfJsonString } from "./JSONHelper";
+import { parseIfJsonString } from './JSONHelper'
 
 class AppStorage {
   private get isBrowser() {
-    return typeof window !== "undefined";
+    return typeof window !== 'undefined'
   }
 
   setItem<T extends any = any>(key: string, value: T) {
     if (this.isBrowser) {
-      const stored = JSON.stringify(value);
-      return localStorage.setItem(key, stored);
+      const stored = JSON.stringify(value)
+      return localStorage.setItem(key, stored)
     }
-    return null;
+    return null
   }
 
   removeItem(key: string) {
     if (this.isBrowser) {
-      return localStorage.removeItem(key);
+      return localStorage.removeItem(key)
     }
-    return null;
+    return null
   }
 
   getItem<T = any>(key: string): T | null {
     if (this.isBrowser) {
-      const ls = localStorage.getItem(key);
-      return parseIfJsonString(ls);
+      const ls = localStorage.getItem(key)
+      return parseIfJsonString(ls)
     }
-    return null;
+    return null
   }
 
   clear(): void {
     if (this.isBrowser) {
-      return localStorage.clear();
+      return localStorage.clear()
     }
   }
 }
 
-export default new AppStorage();
+export default new AppStorage()

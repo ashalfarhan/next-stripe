@@ -1,23 +1,23 @@
-import Link from "next/link";
-import { useMemo } from "react";
-import { TiShoppingCart } from "react-icons/ti";
-import { useCartState } from "../../helpers";
-import NoSSR from "../Shared/NoSsr";
+import Link from 'next/link'
+import { useMemo } from 'react'
+import { TiShoppingCart } from 'react-icons/ti'
+import { useCartState } from '../../helpers'
+import NoSSR from '../Shared/NoSsr'
 
 const navs = [
   {
-    label: "About",
-    path: "/about",
+    label: 'About',
+    path: '/about',
   },
   {
-    label: "Products",
-    path: "/products",
+    label: 'Products',
+    path: '/products',
   },
-];
+]
 
 const Header = () => {
-  const { totalCartQty } = useCartState();
-  const isNotif = useMemo(() => totalCartQty > 0, [totalCartQty]);
+  const { totalCartQty } = useCartState()
+  const isNotif = useMemo(() => totalCartQty > 0, [totalCartQty])
   return (
     <header className="p-4 shadow-md">
       <div className="flex justify-between px-4 items-center">
@@ -49,7 +49,7 @@ const Header = () => {
         </Link>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

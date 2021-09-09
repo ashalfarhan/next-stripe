@@ -1,4 +1,4 @@
-import { Hero, Layout, Seo } from "../components";
+import { Hero, Layout, Seo } from '../components'
 
 export default function Home() {
   return (
@@ -8,5 +8,5 @@ export default function Home() {
         <Hero />
       </div>
     </Layout>
-  );
+  )
 }

@@ -1,18 +1,14 @@
-import { ReactNode, useEffect, useState } from "react";
+import { FC, useEffect, useState } from 'react'
 
-interface NoSSRProps {
-  children: ReactNode;
+const NoSSR: FC = ({ children }) => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  if (!mounted) {
+    return null
+  }
+  return <>{children}</>
 }
 
-const NoSSR = ({ children }: NoSSRProps) => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return null;
-  }
-  return <>{children}</>;
-};
-
-export default NoSSR;
+export default NoSSR

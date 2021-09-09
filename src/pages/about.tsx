@@ -1,4 +1,4 @@
-import { Layout, Seo } from "../components";
+import { Layout, Seo } from '../components'
 
 export default function About() {
   return (
@@ -9,5 +9,5 @@ export default function About() {
         <p>Just an example to create an e-commerce site</p>
       </div>
     </Layout>
-  );
+  )
 }

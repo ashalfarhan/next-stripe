@@ -1,21 +1,21 @@
-import Link from "next/link";
-import { useMemo } from "react";
-import { Product } from "../../@types";
-import { useCartAction, useCartState, useCurrency } from "../../helpers";
-import NoSSR from "../Shared/NoSsr";
+import Link from 'next/link'
+import { useMemo } from 'react'
+import { Product } from '../../@types'
+import { useCartAction, useCartState, useCurrency } from '../../helpers'
+import NoSSR from '../Shared/NoSsr'
 
 interface CardFeaturedProductProps {
-  product: Product;
+  product: Product
 }
 
 const CardFeaturedProduct = ({ product }: CardFeaturedProductProps) => {
-  const { format } = useCurrency();
-  const { allCart } = useCartState();
-  const { addItemToCart } = useCartAction();
+  const { format } = useCurrency()
+  const { allCart } = useCartState()
+  const { addItemToCart } = useCartAction()
   const isAlreadyInCart = useMemo(
     () => allCart.some((val) => val.id === product.id),
     [allCart, product],
-  );
+  )
   return (
     <div className="p-4 flex flex-col hover:shadow-2xl transition-shadow ease-in-out duration-300 rounded-xl">
       <img
@@ -40,15 +40,15 @@ const CardFeaturedProduct = ({ product }: CardFeaturedProductProps) => {
           onClick={() => addItemToCart(product.id)}
           className={`${
             isAlreadyInCart
-              ? "bg-gray-600"
-              : "bg-gray-900 hover:bg-gray-800 transition-colors"
+              ? 'bg-gray-600'
+              : 'bg-gray-900 hover:bg-gray-800 transition-colors'
           }  text-white px-4 py-2`}
         >
-          {isAlreadyInCart ? "Add more in cart" : "Add to Cart"}
+          {isAlreadyInCart ? 'Add more in cart' : 'Add to Cart'}
         </button>
       </NoSSR>
     </div>
-  );
-};
+  )
+}
 
-export default CardFeaturedProduct;
+export default CardFeaturedProduct

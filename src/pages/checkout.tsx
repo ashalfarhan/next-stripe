@@ -1,4 +1,4 @@
-import { CheckoutForm, Layout, Seo } from "../components";
+import { CheckoutForm, Layout, Seo } from '../components'
 
 export default function Checkout() {
   return (
@@ -9,5 +9,5 @@ export default function Checkout() {
         <CheckoutForm />
       </div>
     </Layout>
-  );
+  )
 }

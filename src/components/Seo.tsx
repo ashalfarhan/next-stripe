@@ -1,19 +1,19 @@
-import Head from "next/head";
-import siteMeta from "../config/siteMeta";
+import Head from 'next/head'
+import siteMeta from '../config/siteMeta'
 
 interface SeoProps {
-  description?: string;
-  title?: string;
-  favicon?: string;
-  canonical?: string;
-  image?: string;
+  description?: string
+  title?: string
+  favicon?: string
+  canonical?: string
+  image?: string
 }
 
 const Seo = ({
-  description = "",
-  title = "",
-  favicon = "",
-  canonical = "",
+  description = '',
+  title = '',
+  favicon = '',
+  canonical = '',
   image,
 }: SeoProps) => {
   return (
@@ -58,9 +58,9 @@ const Seo = ({
       />
       <meta property="twitter:image:src" content={siteMeta.image} />
       {canonical && <link property="canonical" href={canonical} />}
-      <link rel="icon" href={favicon || "/favicon.ico"} />
+      <link rel="icon" href={favicon || '/favicon.ico'} />
     </Head>
-  );
-};
+  )
+}
 
-export default Seo;
+export default Seo

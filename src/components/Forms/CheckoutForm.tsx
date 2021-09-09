@@ -1,22 +1,22 @@
-import { useStripe } from "@stripe/react-stripe-js";
-import { FormEvent, useState } from "react";
-import { useCartState, useCurrency } from "../../helpers";
-import { $axios } from "../../libs";
-import NoSSR from "../Shared/NoSsr";
+import { useStripe } from '@stripe/react-stripe-js'
+import { FormEvent, useState } from 'react'
+import { useCartState, useCurrency } from '../../helpers'
+import { $axios } from '../../libs'
+import NoSSR from '../Shared/NoSsr'
 
 const CheckoutForm = () => {
-  const stripe = useStripe();
-  const { totalAmount, allCart } = useCartState();
-  const { format } = useCurrency();
-  const [email, setEmail] = useState("");
+  const stripe = useStripe()
+  const { totalAmount, allCart } = useCartState()
+  const { format } = useCurrency()
+  const [email, setEmail] = useState('')
   const handleBuy = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     if (stripe) {
       const line_items = allCart.map(
         ({ quantity, price, label, description, image }) => ({
           quantity,
           price_data: {
-            currency: "usd",
+            currency: 'usd',
             /**
              * Amount should be included the small amount
              * if the product sold 9 dollars
@@ -30,26 +30,26 @@ const CheckoutForm = () => {
             },
           },
         }),
-      );
+      )
       try {
-        const { data } = await $axios.post("/checkout/createSession", {
+        const { data } = await $axios.post('/checkout/createSession', {
           line_items,
           customer_email: email,
-        });
+        })
         const { error } = await stripe.redirectToCheckout({
           sessionId: data.sessionId,
-        });
+        })
         if (error) {
           console.error(
-            "Something went wrong while redirecting you to checkout",
-          );
-          return;
+            'Something went wrong while redirecting you to checkout',
+          )
+          return
         }
       } catch (error) {
-        console.error("Failed to charge: ", error);
+        console.error('Failed to charge: ', error)
       }
     }
-  };
+  }
   return (
     <form
       onSubmit={handleBuy}
@@ -75,7 +75,7 @@ const CheckoutForm = () => {
         Pay Now
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default CheckoutForm;
+export default CheckoutForm

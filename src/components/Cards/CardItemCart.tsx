@@ -1,20 +1,20 @@
-import { CartItem } from "../../@types";
-import { useCartAction, useCurrency } from "../../helpers";
-import { useMemo } from "react";
-import Link from "next/link";
+import { CartItem } from '../../@types'
+import { useCartAction, useCurrency } from '../../helpers'
+import { useMemo } from 'react'
+import Link from 'next/link'
 
 interface CardItemCartProps {
-  product: CartItem;
+  product: CartItem
 }
 
 const CardItemCart = ({ product }: CardItemCartProps) => {
-  const { format } = useCurrency();
+  const { format } = useCurrency()
   const { incrementCartItem, decrementCartItem, removeItemFromCart } =
-    useCartAction();
+    useCartAction()
   const totalPrice = useMemo(
     () => format(product.price * product.quantity),
     [product, format],
-  );
+  )
   return (
     <div className="border flex space-x-4 p-4">
       <Link href={`/products/${product.id}`} passHref>
@@ -39,7 +39,7 @@ const CardItemCart = ({ product }: CardItemCartProps) => {
         <div className="flex space-x-4 items-center">
           <button
             className={`px-3 py-px hover:bg-gray-500 bg-gray-600 text-white ${
-              product.quantity === 1 ? "cursor-not-allowed" : ""
+              product.quantity === 1 ? 'cursor-not-allowed' : ''
             }`}
             onClick={() => decrementCartItem(product.id)}
             disabled={product.quantity === 1}
@@ -62,7 +62,7 @@ const CardItemCart = ({ product }: CardItemCartProps) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardItemCart;
+export default CardItemCart

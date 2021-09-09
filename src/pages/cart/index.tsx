@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { CardItemCart, Layout, Seo } from "../../components";
-import NoSSR from "../../components/Shared/NoSsr";
-import { useCartState } from "../../helpers";
+import Link from 'next/link'
+import { CardItemCart, Layout, Seo } from '../../components'
+import NoSSR from '../../components/Shared/NoSsr'
+import { useCartState } from '../../helpers'
 
 export default function CartPage() {
-  const { allCart } = useCartState();
+  const { allCart } = useCartState()
   return (
     <Layout>
       <Seo title="Cart" />
@@ -34,5 +34,5 @@ export default function CartPage() {
         </NoSSR>
       </div>
     </Layout>
-  );
+  )
 }

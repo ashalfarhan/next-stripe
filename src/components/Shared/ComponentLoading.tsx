@@ -1,11 +1,11 @@
-import { VscLoading } from "react-icons/vsc";
+import { VscLoading } from 'react-icons/vsc'
 
 interface ComponentLoadingProps {
-  error?: Error | null | undefined;
-  isLoading?: boolean | undefined;
-  pastDelay?: boolean | undefined;
-  retry?: (() => void) | undefined;
-  timedOut?: boolean | undefined;
+  error?: Error | null | undefined
+  isLoading?: boolean | undefined
+  pastDelay?: boolean | undefined
+  retry?: (() => void) | undefined
+  timedOut?: boolean | undefined
 }
 
 export default function ComponentLoading({
@@ -20,5 +20,5 @@ export default function ComponentLoading({
         <p>Failed to load</p>
       )}
     </div>
-  );
+  )
 }

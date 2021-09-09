@@ -1,10 +1,10 @@
-import { dummyProducts } from "../../mocks";
-import { CardFeaturedProduct, Layout, Seo } from "../../components";
-import { GetServerSideProps } from "next";
-import { Product } from "../../@types";
+import { dummyProducts } from '../../mocks'
+import { CardFeaturedProduct, Layout, Seo } from '../../components'
+import { GetServerSideProps } from 'next'
+import { Product } from '../../@types'
 
 interface AllProductsPageProps {
-  products: Product[];
+  products: Product[]
 }
 
 export default function ProductsPage({ products }: AllProductsPageProps) {
@@ -23,11 +23,11 @@ export default function ProductsPage({ products }: AllProductsPageProps) {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: { products: dummyProducts },
-  };
-};
+  }
+}

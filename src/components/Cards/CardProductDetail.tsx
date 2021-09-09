@@ -1,20 +1,20 @@
-import { Product } from "../../@types";
-import { useMemo } from "react";
-import { useCartState, useCurrency, useCartAction } from "../../helpers";
-import NoSSR from "../Shared/NoSsr";
+import { Product } from '../../@types'
+import { useMemo } from 'react'
+import { useCartState, useCurrency, useCartAction } from '../../helpers'
+import NoSSR from '../Shared/NoSsr'
 
 interface CardProductDetailProps {
-  product: Product;
+  product: Product
 }
 
 const CardProductDetail = ({ product }: CardProductDetailProps) => {
-  const { format } = useCurrency();
-  const { allCart } = useCartState();
-  const { addItemToCart } = useCartAction();
+  const { format } = useCurrency()
+  const { allCart } = useCartState()
+  const { addItemToCart } = useCartAction()
   const isAlreadyInCart = useMemo(
     () => allCart.some((val) => val.id === product.id),
     [allCart, product],
-  );
+  )
   return (
     <div className="flex pt-24 space-y-4 md:space-x-8 md:flex-row flex-col justify-center md:items-center">
       <img
@@ -32,7 +32,7 @@ const CardProductDetail = ({ product }: CardProductDetailProps) => {
             className={`py-2 border-2 border-black`}
             onClick={() => addItemToCart(product.id)}
           >
-            {isAlreadyInCart ? "Add more to cart" : "Add to cart"}
+            {isAlreadyInCart ? 'Add more to cart' : 'Add to cart'}
           </button>
         </NoSSR>
         <button className="py-3 bg-black text-white">
@@ -41,7 +41,7 @@ const CardProductDetail = ({ product }: CardProductDetailProps) => {
         <p>{product.description}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardProductDetail;
+export default CardProductDetail

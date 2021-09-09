@@ -1,1 +1,1 @@
-export { default as ComponentLoading } from "./ComponentLoading";
+export { default as ComponentLoading } from './ComponentLoading'

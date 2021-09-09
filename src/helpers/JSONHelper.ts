@@ -1,15 +1,15 @@
 export function isJsonString(str: any) {
   try {
-    JSON.parse(str);
+    JSON.parse(str)
   } catch (e) {
-    return false;
+    return false
   }
-  return true;
+  return true
 }
 
 export function parseIfJsonString(str: any): any {
   if (isJsonString(str)) {
-    return JSON.parse(str);
+    return JSON.parse(str)
   }
-  return str;
+  return str
 }
